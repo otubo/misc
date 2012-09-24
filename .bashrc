@@ -44,4 +44,4 @@ alias mutt='TERM=gnome-256color /home/otubo/develop/mutt-1.5.21/mutt -F /home/ot
 # Instalacao das Funcoes ZZ (www.funcoeszz.net)
 export ZZOFF=""  # desligue funcoes indesejadas
 export ZZPATH="/usr/bin/funcoeszz"  # script
-source "$ZZPATH"				
+source "$ZZPATH"

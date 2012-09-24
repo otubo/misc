@@ -75,35 +75,35 @@ macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sen
 set fast_reply                 # skip initial prompts when replying
 set beep_new=yes
 set ascii_chars=yes
-set auto_tag=yes		# always operate on tagged messages
-set autoedit=no		# go to the editor right away when composing
-set charset="utf-8"	# character set for your terminal
+set auto_tag=yes    # always operate on tagged messages
+set autoedit=no    # go to the editor right away when composing
+set charset="utf-8"  # character set for your terminal
 set config_charset="utf-8"
-set confirmappend=no		# don't ask me if i want to append to mailboxes
-set delete=yes			# purge deleted messages without asking
-set edit_headers=yes		# let me edit the message header when composing
+set confirmappend=no    # don't ask me if i want to append to mailboxes
+set delete=yes      # purge deleted messages without asking
+set edit_headers=yes    # let me edit the message header when composing
 set folder_format="%F %-8.8u %-8.8g %d %8s %N %f"
-set hostname="bluepex.com"	# my DNS domain
-set include=yes			# always include messages when replying
-set mail_check=15		# how often to poll for new mail
+set hostname="bluepex.com"  # my DNS domain
+set include=yes      # always include messages when replying
+set mail_check=15    # how often to poll for new mail
 set mark_old=no
-set move=yes			# don't ask about moving messages, just do it
-set pager_index_lines=15	# how many index lines to show in the pager
-set postponed="+[Gmail]/Drafts"	# mailbox to store postponed messages in
-set print_command=/usr/bin/lp	# how to print things (I like to save trees)
-set prompt_after=no		# ask me for a command after the external pager exits
-set read_inc=25			# show progress when reading a mailbox
-set record="+Sent"	# default location to save outgoing mail
+set move=yes      # don't ask about moving messages, just do it
+set pager_index_lines=15  # how many index lines to show in the pager
+set postponed="+[Gmail]/Drafts"  # mailbox to store postponed messages in
+set print_command=/usr/bin/lp  # how to print things (I like to save trees)
+set prompt_after=no    # ask me for a command after the external pager exits
+set read_inc=25      # show progress when reading a mailbox
+set record="+Sent"  # default location to save outgoing mail
 #set trash="=[Gmail]/Trash"
-set reply_to=yes		# always use reply-to if present
-set reverse_name=yes		# use my address as it appears in the message
-set save_empty=no		# remove files when no messages are left
+set reply_to=yes    # always use reply-to if present
+set reverse_name=yes    # use my address as it appears in the message
+set save_empty=no    # remove files when no messages are left
 set send_charset="utf-8:iso-8859-1"
-set shell="/bin/tcsh"		# program to use for shell escapes
-set sort_aux=last-date		# date of the last message in thread
-set sort_browser=reverse-date	# how to sort files in the dir browser
-set tilde=yes			# virtual lines to pad blank lines in the pager
-set write_inc=25		# show progress while writing mailboxes
+set shell="/bin/tcsh"    # program to use for shell escapes
+set sort_aux=last-date    # date of the last message in thread
+set sort_browser=reverse-date  # how to sort files in the dir browser
+set tilde=yes      # virtual lines to pad blank lines in the pager
+set write_inc=25    # show progress while writing mailboxes
 set collapse_unread=no
 set reply_regexp="^(re([\[0-9\]+])*|aw|res):[ \t]*"
 set rfc2047_parameters=yes
@@ -115,11 +115,11 @@ set sort_aux = 'last-date-received'
 #
 # Header fields I don't normally want to see
 #
-ignore *		# this means "ignore all lines by default"
+ignore *    # this means "ignore all lines by default"
 
 # I do want to see these fields, though!
-unignore	from: subject to cc mail-followup-to \
-		date x-mailer x-url # this shows how nicely wrap long lines
+unignore  from: subject to cc mail-followup-to \
+    date x-mailer x-url # this shows how nicely wrap long lines
 
 macro index <F3> "l~Cltc-interlock@lists.linux.ibm.com<enter><end>"
 macro index <F4> "l~Cibm-openstack-dev@lists.linux.ibm.com<enter><end>"
@@ -134,31 +134,31 @@ macro index <F10> "l~Ceotubo@br.ibm.com | ~Cotubo@linux.vnet.ibm.com | ~Ceotubo@
 #
 # Key bindings
 #
-#	maps:
-#		alias		alias menu
-#		attach		attachment menu
-#		browser		directory browser
-#		compose		compose menu
-#		index		message index
-#		pgp		pgp menu
-#		postpone	postponed message recall menu
-#		generic		generic keymap for all of the above
-#		editor		line editor
-#		pager		text viewer
-#		
+#  maps:
+#    alias    alias menu
+#    attach    attachment menu
+#    browser    directory browser
+#    compose    compose menu
+#    index    message index
+#    pgp    pgp menu
+#    postpone  postponed message recall menu
+#    generic    generic keymap for all of the above
+#    editor    line editor
+#    pager    text viewer
+#    
 #
-#bind generic "\e<" first-entry	# emacs-like bindings for moving to top/bottom
+#bind generic "\e<" first-entry  # emacs-like bindings for moving to top/bottom
 #bind generic \e> last-entry
 #bind generic { top-page
 #bind generic } bottom-page
 #bind generic \177 last-entry
 #
-#macro index \cb |urlview\n	# simulate the old browse-url function
+#macro index \cb |urlview\n  # simulate the old browse-url function
 #
 #macro index S s+spam\n
 #macro pager S s+spam\n
 #
-#bind pager G bottom	# just like vi and less
+#bind pager G bottom  # just like vi and less
 #
 ## ctrl-n, ctrl-p to select next, prev folder
 ## ctrl-o to open selected folder
@@ -187,7 +187,7 @@ my_hdr X-Operating-System: `uname -v | cut -d: -f1`
 #
 # Specify default filename when saving messages
 #
-#	save-hook [!]<pattern> <mailbox>
+#  save-hook [!]<pattern> <mailbox>
 #
 # <mailbox> is provided as default when saving messages from <pattern>
 
@@ -199,7 +199,7 @@ my_hdr X-Operating-System: `uname -v | cut -d: -f1`
 #
 # Multiple spool mailboxes
 #
-#	mbox-hook [!]<pattern> <mbox-mailbox>
+#  mbox-hook [!]<pattern> <mbox-mailbox>
 #
 # Read mail in <pattern> is moved to <mbox-mailbox> when <pattern> is
 # closed.
@@ -211,7 +211,7 @@ my_hdr X-Operating-System: `uname -v | cut -d: -f1`
 #
 # Specify where to save composed messages
 #
-#	fcc-hook [!]<pattern> <mailbox>
+#  fcc-hook [!]<pattern> <mailbox>
 #
 # <pattern> is recipient(s), <mailbox> is where to save a copy
 
@@ -227,7 +227,7 @@ fcc-hook ports-committers@ ports-committers
 #
 # Change settings based on mailbox
 #
-#	folder-hook [!]<pattern> <command>
+#  folder-hook [!]<pattern> <command>
 #
 # <command> is executed when opening a mailbox matching <pattern>
 
@@ -244,7 +244,7 @@ folder-hook . push "<delete-pattern>~=<enter>"
 #
 # Mailboxes to watch for new mail
 #
-#	mailboxes <path1> [ <path2> ... ]
+#  mailboxes <path1> [ <path2> ... ]
 #
 
 #mailboxes =INBOX =gnats =ports-developers =all-developers =ports-committers =fbsd-announce =fug-adm "[Gmail]/Sent Mail"
@@ -253,17 +253,17 @@ folder-hook . push "<delete-pattern>~=<enter>"
 #
 # Specify the order of the headers to appear when displaying a message
 #
-#	hdr_order <hdr1> [ <hdr2> ... ]
+#  hdr_order <hdr1> [ <hdr2> ... ]
 #
 
-unhdr_order *				# forget the previous settings
+unhdr_order *        # forget the previous settings
 hdr_order date from to cc subject
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 # Identify mailing lists I subscribe to
 #
-#	lists <list-name> [ <list-name> ... ]
+#  lists <list-name> [ <list-name> ... ]
 
 # lists mutt-dev mutt-users
 subscribe libvirt libssh openssh Qemu-devel libssh2 Xcat-commit
@@ -272,7 +272,7 @@ subscribe libvirt libssh openssh Qemu-devel libssh2 Xcat-commit
 #
 # Automatically use entries from ~/.mailcap to view these MIME types
 #
-#	auto_view <type> [ <type> ... ]
+#  auto_view <type> [ <type> ... ]
 
 #auto_view application/x-gunzip
 #auto_view application/x-gzip
@@ -295,7 +295,7 @@ charset-hook windows-1257 CP1257
 charset-hook windows-1258 CP1258
 
 # Aliases
-set alias_file=~/.mutt/aliases	# where I keep my aliases
+set alias_file=~/.mutt/aliases  # where I keep my aliases
 set sort_alias= alias
 set reverse_alias=yes
 source $alias_file
