@@ -1,0 +1,333 @@
+# $Id: sample.muttrc,v 1.3 2000/03/01 18:10:30 roessler Exp $
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# ME's personal .muttrc (Mutt 0.92.5)
+#
+# The format of this file is one command per line.  Everything after a pound
+# sign (#) is a comment, unless a backward slash (\) precedes it
+#
+
+# Note: $folder should be set _before_ any other path vars where `+' or `='
+# is used because paths are expanded when parsed
+#
+set folder=""
+set spoolfile=""
+set mbox=""
+set editor="/usr/bin/vim +2 -c 'normal 5l'"
+#set editor="vim -f -c 'set nohlsearch noshowmatch modelines=0 tw=75 et noai' --cmd 'let mutt_mode=1'"
+set envelope_from=yes
+set from=otubo@linux.vnet.ibm.com
+set header_cache=~/.mutt/cache/IBM
+set message_cachedir=~/.mutt/cache/IBM-message
+set imap_pass="SENHA"
+set imap_user="USUARIO"
+set signature="~/.signature_ibm"
+set ssl_starttls=no
+set smtp_url="SERVER"
+set imap_check_subscribed=yes
+set abort_unmodified=yes
+set record="=Sent"
+set postponed="=Drafts"
+unset imap_passive  
+
+#set folder = /home/otubo/Inbox
+#set spoolfile=/home/otubo/Inbox
+#set mbox=/home/otubo/Inbox
+#
+#set sidebar_visible=yes
+#set sidebar_width=35
+#
+#TESTANDO CONFIGURACOES DE SIDEBAR E OUTRAS COUSAS
+#-------------------------------------------------
+#set sidebar_visible="yes"
+#set sidebar_width=25
+#set sidebar_delim='|'
+#color sidebar_new yellow default
+#mailboxes =INBOX =libvirt =open-ovf =libssh =openssh =lwn =ltc-brazil
+#color sidebar_new yellow default
+#ctrl-n, ctrl-p to select next, prev folder
+#ctrl-o to open selected folder
+#bind index \cp sidebar-prev
+#bind index \cn sidebar-next
+#bind index \co sidebar-open
+#bind pager \cp sidebar-prev
+#bind pager \cn sidebar-next
+#bind pager \co sidebar-open
+##
+##
+## b toggles sidebar visibility
+#macro index b '<enter-command>toggle sidebar_visible<enter>'
+#macro pager b '<enter-command>toggle sidebar_visible<enter>'
+
+#save attachment
+macro attach W <save-entry><kill-line>/home/otubo/Downloads
+
+set realname = "Eduardo Otubo"
+set mailcap_path="~/.mutt/mailcap"
+
+#adress book
+set alias_file= ~/.mutt/aliases  # where I keep my aliases
+source ~/.mutt/aliases
+set query_command= "abook --mutt-query '%s'"
+macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
+
+set fast_reply                 # skip initial prompts when replying
+set beep_new=yes
+set ascii_chars=yes
+set auto_tag=yes		# always operate on tagged messages
+set autoedit=no		# go to the editor right away when composing
+set charset="utf-8"	# character set for your terminal
+set config_charset="utf-8"
+set confirmappend=no		# don't ask me if i want to append to mailboxes
+set delete=yes			# purge deleted messages without asking
+set edit_headers=yes		# let me edit the message header when composing
+set folder_format="%F %-8.8u %-8.8g %d %8s %N %f"
+set hostname="bluepex.com"	# my DNS domain
+set include=yes			# always include messages when replying
+set mail_check=15		# how often to poll for new mail
+set mark_old=no
+set move=yes			# don't ask about moving messages, just do it
+set pager_index_lines=15	# how many index lines to show in the pager
+set postponed="+[Gmail]/Drafts"	# mailbox to store postponed messages in
+set print_command=/usr/bin/lp	# how to print things (I like to save trees)
+set prompt_after=no		# ask me for a command after the external pager exits
+set read_inc=25			# show progress when reading a mailbox
+set record="+Sent"	# default location to save outgoing mail
+#set trash="=[Gmail]/Trash"
+set reply_to=yes		# always use reply-to if present
+set reverse_name=yes		# use my address as it appears in the message
+set save_empty=no		# remove files when no messages are left
+set send_charset="utf-8:iso-8859-1"
+set shell="/bin/tcsh"		# program to use for shell escapes
+set sort_aux=last-date		# date of the last message in thread
+set sort_browser=reverse-date	# how to sort files in the dir browser
+set tilde=yes			# virtual lines to pad blank lines in the pager
+set write_inc=25		# show progress while writing mailboxes
+set collapse_unread=no
+set reply_regexp="^(re([\[0-9\]+])*|aw|res):[ \t]*"
+set rfc2047_parameters=yes
+set move = no
+set sort = 'threads'
+set sort_aux = 'last-date-received'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# Header fields I don't normally want to see
+#
+ignore *		# this means "ignore all lines by default"
+
+# I do want to see these fields, though!
+unignore	from: subject to cc mail-followup-to \
+		date x-mailer x-url # this shows how nicely wrap long lines
+
+macro index <F3> "l~Cltc-interlock@lists.linux.ibm.com<enter><end>"
+macro index <F4> "l~Cibm-openstack-dev@lists.linux.ibm.com<enter><end>"
+macro index <F5> "l~Cmaroon@lists.linux.ibm.com<enter><end>"
+macro index <F6> "l~Cqemu-devel@nongnu.org<enter><end>"
+macro index <F7> "l~Clibvir-list@redhat.com | ~Clibvirt-list@redhat.com<enter><end>"
+macro index <F8> "l~Clibseccomp-discuss@lists.sourceforge.net<enter><end>"
+macro index <F9> "l!~Cmaroon@lists.linux.ibm.com !~Cqemu-devel@nongnu.org !~Clibvir-list@redhat.com !~Clibvirt-list@redhat.com !~Clibseccomp-discuss@lists.sourceforge.net !~Cibm-openstack-dev@lists.linux.ibm.com !~Cltc-interlock@lists.linux.ibm.com<enter><end>"
+macro index <F10> "l~Ceotubo@br.ibm.com | ~Cotubo@linux.vnet.ibm.com | ~Ceotubo@linux.vnet.ibm.com<enter><end>"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# Key bindings
+#
+#	maps:
+#		alias		alias menu
+#		attach		attachment menu
+#		browser		directory browser
+#		compose		compose menu
+#		index		message index
+#		pgp		pgp menu
+#		postpone	postponed message recall menu
+#		generic		generic keymap for all of the above
+#		editor		line editor
+#		pager		text viewer
+#		
+#
+#bind generic "\e<" first-entry	# emacs-like bindings for moving to top/bottom
+#bind generic \e> last-entry
+#bind generic { top-page
+#bind generic } bottom-page
+#bind generic \177 last-entry
+#
+#macro index \cb |urlview\n	# simulate the old browse-url function
+#
+#macro index S s+spam\n
+#macro pager S s+spam\n
+#
+#bind pager G bottom	# just like vi and less
+#
+## ctrl-n, ctrl-p to select next, prev folder
+## ctrl-o to open selected folder
+##bind index \CK sidebar-prev
+##bind index \CJ sidebar-next
+##bind index \CH sidebar-open
+##bind pager \CK sidebar-prev
+##bind pager \CJ sidebar-next
+##bind pager \CH sidebar-open
+#
+## b toggles sidebar visibility
+##macro index b ':toggle sidebar_visible
+#'
+##macro pager b ':toggle sidebar_visible
+#'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# User Defined Headers
+#
+
+#my_hdr X-Useless-Header: Look ma, it's a \# sign! # real comment
+my_hdr X-Operating-System: `uname -v | cut -d: -f1`
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# Specify default filename when saving messages
+#
+#	save-hook [!]<pattern> <mailbox>
+#
+# <mailbox> is provided as default when saving messages from <pattern>
+
+#save-hook mutt- =mutt-mail
+#save-hook aol\.com +spam
+#save-hook ^judge +diplomacy
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# Multiple spool mailboxes
+#
+#	mbox-hook [!]<pattern> <mbox-mailbox>
+#
+# Read mail in <pattern> is moved to <mbox-mailbox> when <pattern> is
+# closed.
+
+#mbox-hook =mutt-users.in =mutt-users
+#mbox-hook +TEST +inbox
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# Specify where to save composed messages
+#
+#	fcc-hook [!]<pattern> <mailbox>
+#
+# <pattern> is recipient(s), <mailbox> is where to save a copy
+
+#fcc-hook joe +joe
+#fcc-hook bob +bob
+
+fcc-hook . =
+fcc-hook developers@ all-developers
+fcc-hook ports-developers@ ports-developers
+fcc-hook ports-committers@ ports-committers
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# Change settings based on mailbox
+#
+#	folder-hook [!]<pattern> <command>
+#
+# <command> is executed when opening a mailbox matching <pattern>
+
+#folder-hook . 'set reply_regexp="^re:[ \t]*"'
+folder-hook . 'set sort=threads'
+folder-hook . 'set index_format="%Z %{%d/%m} | %-20.20F | %s"'
+folder-hook . push "<delete-pattern>~=<enter>"
+
+# this mailing list prepends "[WM]" to all non reply subjects, so set
+# $reply_regexp to ignore it
+#folder-hook +wmaker 'set reply_regexp="^(re:[ \t]*)?\[WM\][ \t]*"'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# Mailboxes to watch for new mail
+#
+#	mailboxes <path1> [ <path2> ... ]
+#
+
+#mailboxes =INBOX =gnats =ports-developers =all-developers =ports-committers =fbsd-announce =fug-adm "[Gmail]/Sent Mail"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# Specify the order of the headers to appear when displaying a message
+#
+#	hdr_order <hdr1> [ <hdr2> ... ]
+#
+
+unhdr_order *				# forget the previous settings
+hdr_order date from to cc subject
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# Identify mailing lists I subscribe to
+#
+#	lists <list-name> [ <list-name> ... ]
+
+# lists mutt-dev mutt-users
+subscribe libvirt libssh openssh Qemu-devel libssh2 Xcat-commit
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#
+# Automatically use entries from ~/.mailcap to view these MIME types
+#
+#	auto_view <type> [ <type> ... ]
+
+#auto_view application/x-gunzip
+#auto_view application/x-gzip
+alternative_order text/calendar text/enriched text/plain text/html
+auto_view text/calendar
+#
+
+# aliases for broken MUAs
+charset-hook US-ASCII ISO-8859-1
+charset-hook us-ascii ISO-8859-1
+charset-hook x-unknown ISO-8859-1
+charset-hook windows-1250 CP1250
+charset-hook windows-1251 CP1251
+charset-hook windows-1252 CP1252
+charset-hook windows-1253 CP1253
+charset-hook windows-1254 CP1254
+charset-hook windows-1255 CP1255
+charset-hook windows-1256 CP1256
+charset-hook windows-1257 CP1257
+charset-hook windows-1258 CP1258
+
+# Aliases
+set alias_file=~/.mutt/aliases	# where I keep my aliases
+set sort_alias= alias
+set reverse_alias=yes
+source $alias_file
+
+# Colors
+source /home/otubo/.mutt/colorschemes/mutt-colors-solarized-dark-256.muttrc
+color body brightred    color234 "^-.*"
+color body brightgreen  color234 "^[+].*"
+color body brightwhite  color234 "^diff --git.*"
+color body brightwhite  color234 "^index [a-f0-9].*"
+color body brightyellow color234 "^@@.*"
+
+
+## GPG Settings
+#source ~/.mutt-gpg
+#set pgp_autoinline=no
+#set pgp_replyinline=no
+#set crypt_autosmime=no
+#set crypt_autosign=yes
+#set crypt_replyencrypt=yes
+#set crypt_replysignencrypted=yes
+
+# Verifica automaticamente o estilo antigo do gpg
+#message-hook '!(~g|~G) ~b"BEGIN\ PGP\ (SIGNED\ )?MESSAGE"' "exec check-traditional-pgp"
+#message-hook '!~g !~G ~b "^-----BEGIN PGP (SIGNED )?MESSAGE"' 'exec check-traditional-pgp
+#
+## Nao assinar a msg pro gnats
+#send-hook "freebsd-gnats-submit@FreeBSD.org" set crypt_autosign=no
+#send-hook "bug-followup@FreeBSD.org" set crypt_autosign=no
+#
+## push c?\t
+#
+## EOF
+
+

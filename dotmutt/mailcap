@@ -1,0 +1,50 @@
+text/calendar;  /home/otubo/.mutt/scripts/ics-gcal.py -f %s; copiousoutput; needsterminal
+## I'm always running X :)
+#video/*;	xanim %s > /dev/null
+#image/*;	xv %s > /dev/null
+#
+## I'm always running netscape (if my computer had more memory, maybe)
+#text/html;	netscape -remote 'openURL(%s)'
+#
+##This mailcap file shows quite a number of examples:
+#
+## Use xanim to view all videos   Xanim produces a header on startup,
+## send that to /dev/null so I don't see it
+#video/*;	xanim %s > /dev/null
+#
+## Send html to a running netscape by remote
+#text/html;	netscape -remote 'openURL(%s)'; test=RunningNetscape
+#
+## If I'm not running netscape but I am running X, start netscape on the
+## object
+#text/html;	netscape %s; test=RunningX
+#
+## Else use lynx to view it as text
+#text/html;	lynx %s
+#
+## This version would convert the text/html to text/plain
+#text/html;	lynx -dump %s; copiousoutput
+#
+## enriched.sh converts text/enriched to text/html and then uses 
+## lynx -dump to convert it to text/plain
+#text/enriched;	enriched.sh ; copiousoutput
+#
+## I use enscript to print text in two columns to a page
+#text/*;		more %s; print=enscript -2Gr %s
+#
+## Netscape adds a flag to tell itself to view jpegs internally
+#image/jpeg;xv %s; x-mozilla-flags=internal
+#
+## Use xv to view images if I'm running X
+## In addition, this uses the \ to extend the line and set my editor
+## for images
+#image/*;xv %s; test=RunningX; \
+#edit=xpaint %s
+#
+## Convert images to text using the netpbm tools
+#image/*;  (anytopnm %s | pnmscale -xysize 80 46 | ppmtopgm | pgmtopbm |
+#pbmtoascii -1x2 ) 2>&1 ; copiousoutput
+#
+## Send excel spreadsheets to my NT box
+#application/ms-excel; open.pl %s
+#
