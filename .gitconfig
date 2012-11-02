@@ -1,0 +1,14 @@
+[core]
+    editor = vim
+[user]
+    name = Eduardo Otubo
+    email = EMAIL
+[sendemail]
+    smtpserver = SMTP
+    envelopesender = EMAIL
+[color]
+    ui = auto
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
