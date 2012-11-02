@@ -1,10 +1,11 @@
-source /etc/bashrc
-export PS1='\[\033[40;32;3m\]\u@\h \[\033[40;34;3m\]\w\[\033[40;34;1m\] \$\[\e[0m\] '
-
 #Bash Completion
-#if [ -f /etc/bash_completion ]; then
-#        . /etc/bash_completion
-#fi
+
+source /etc/bash_completion.d/git
+source /etc/bashrc
+
+export PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\w\[\e[31;1m\]$(__git_ps1 " %s")\[\033[01;34m\] \$ \[\e[0m\]'
+#export PS1='\[\033[40;32;3m\]\u@\h \[\033[40;34;3m\]\w\[\033[40;34;1m\] \$\[\e[0m\] '
+
 
 #Some important alias
 alias ll='ls -lsh --color=auto'
@@ -30,11 +31,15 @@ alias vmore="vim -u ~/.vimrc.more -"
 alias ncmpc="ncmpc -c -h 192.168.0.109"
 alias seelog="screen -c .screenrc_log"
 alias emerge="sudo yum install -y "
-alias eix="sudo yum search search"
-alias update="sudo && sudo apt-get upgrade -y"
+alias eix="sudo yum search"
+alias update="sudo apt-get upgrade -y"
 alias b="sudo make install"
 alias mutt='TERM=gnome-256color /home/otubo/develop/mutt-1.5.21/mutt -F /home/otubo/.muttrc_otubo'
 
+#for qemu debugging:
+export QEMU_PROG=/home/otubo/develop/qemu-fresh-new/qemu/x86_64-softmmu/qemu-system-x86_64
+export QEMU_IO_PROG=/home/otubo/develop/qemu-fresh-new/qemu/qemu-io
+export QEMU_IMG_PROG=/home/otubo/develop/qemu-fresh-new/qemu/qemu-img
 
 #this should be the last thing at .bashrc
 #. /etc/profile.d/bash_completion.sh
