@@ -1,8 +1,8 @@
 [core]
     editor = vim
 [user]
-    name = Eduardo Otubo
-    email = EMAIL
+    name = otubo
+    email = eduardo.otubo@gmail.com
 [sendemail]
     smtpserver = SMTP
     envelopesender = EMAIL
