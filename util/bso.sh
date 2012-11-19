@@ -2,8 +2,7 @@
 
 if [ $# != 3 ]; then
     echo Usage:
-    echo     ./bso.sh <hostname> <username> <password>
-    echo
+    echo     "./bso.sh <hostname> <username> <password>";
     exit 1;
 fi
 
