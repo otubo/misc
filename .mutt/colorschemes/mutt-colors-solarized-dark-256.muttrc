@@ -84,6 +84,11 @@ color index         color136        color160        "~v~(~D)"                   
 #color index         color64         color234        "~S"                       # superseded messages
 #color index         color160        color234        "~T"                       # tagged messages
 #color index         color166        color160        "~="                       # duplicated messages
+#highlight threads I'm participating
+#~C - highlight either to: or cc:
+#~f - highlight from:
+color index yellow color234 "~Ceotubo@br.ibm.com | ~Cotubo@linux.vnet.ibm.com | ~Ceotubo@linux.vnet.ibm.com"
+color index yellow color234 "~feotubo@br.ibm.com | ~fotubo@linux.vnet.ibm.com | ~feotubo@linux.vnet.ibm.com"
 
 # message headers ------------------------------------------------------
 
@@ -112,6 +117,13 @@ color body          color245        color234        "[*]?((N)?ACK|CU|LOL|SCNR|BR
                                                      |IRL|RTFM|ROTFL|ROFL|YMMV)[*]?"
 color body          color245        color234        "[ ][*][^*]*[*][ ]?" # more emoticon?
 color body          color245        color234        "[ ]?[*][^*]*[*][ ]" # more emoticon?
+
+## patches
+color body brightred    color234 "^-.*"
+color body brightgreen  color234 "^[+].*"
+color body brightwhite  color234 "^diff --git.*"
+color body brightwhite  color234 "^index [a-f0-9].*"
+color body brightyellow color234 "^@@.*"
 
 ## pgp
 

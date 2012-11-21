@@ -17,7 +17,7 @@ set mbox=""
 set editor="/usr/bin/vim +2 -c 'normal 5l'"
 #set editor="vim -f -c 'set nohlsearch noshowmatch modelines=0 tw=75 et noai' --cmd 'let mutt_mode=1'"
 set envelope_from=yes
-set from=otubo@linux.vnet.ibm.com
+set from=EMAIL
 set header_cache=~/.mutt/cache/IBM
 set message_cachedir=~/.mutt/cache/IBM-message
 set imap_pass="SENHA"
@@ -266,7 +266,7 @@ hdr_order date from to cc subject
 #  lists <list-name> [ <list-name> ... ]
 
 # lists mutt-dev mutt-users
-subscribe libvirt libssh openssh Qemu-devel libssh2 Xcat-commit
+subscribe libvirt libseccomp Qemu-devel
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
@@ -302,12 +302,6 @@ source $alias_file
 
 # Colors
 source /home/otubo/.mutt/colorschemes/mutt-colors-solarized-dark-256.muttrc
-color body brightred    color234 "^-.*"
-color body brightgreen  color234 "^[+].*"
-color body brightwhite  color234 "^diff --git.*"
-color body brightwhite  color234 "^index [a-f0-9].*"
-color body brightyellow color234 "^@@.*"
-
 
 ## GPG Settings
 #source ~/.mutt-gpg
