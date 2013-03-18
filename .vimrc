@@ -233,5 +233,13 @@ endif
 :map <C-a>m      :make<cr>
 :map <C-a>i      :make && make install<cr>
 
+
+" only for diff mode/vimdiff
+" filler is default and inserts empty lines for sync
+if &diff
+	set diffopt=filler,context:1000000
+endif
+
+
 "TESTING THE AUTOCOMPLETE PLUGIN
 let did_ftplugin_after = 1
