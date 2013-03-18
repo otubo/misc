@@ -13,11 +13,10 @@ virt-install --connect qemu:///system \
              --name=${GUESTNAME} \
              --ram=1024 \
              --vcpus=1 \
-             --arch=i386 \
              --os-type linux \
              --cdrom ${CDROM} \
              --os-type=linux \
-             --disk ${GUESTNAME}/${GUESTNAME}-disk.img,size=8,format=raw \
+             --disk /home/otubo/paodealho.img \
              --network bridge=virbr0 \
              --accelerate \
              --vnc
