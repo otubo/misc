@@ -120,7 +120,7 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>4</number>
+    <number>6</number>
     <firstdesk>1</firstdesk>
     <names>
       <!-- set names up here if you want to, like this:
@@ -206,13 +206,13 @@
     <keybind key="S-A-a">
       <action name="SendToDesktop">
         <to>left</to>
-        <wrap>no</wrap>
+        <wrap>yes</wrap>
       </action>
     </keybind>
     <keybind key="S-A-d">
       <action name="SendToDesktop">
         <to>right</to>
-        <wrap>no</wrap>
+        <wrap>yes</wrap>
       </action>
     </keybind>
     <keybind key="S-A-Up">
@@ -340,9 +340,24 @@
         <command>/usr/bin/ibm-notes8</command>
       </action>
     </keybind>
+    <keybind key="C-A-s">
+      <action name="Execute">
+        <command>sudo pm-suspend --quirk-dpms-on --quirk-dpms-suspend</command>
+      </action>
+    </keybind>
     <keybind key="C-A-p">
       <action name="Execute">
         <command>/opt/agns/bin/agnclient</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-g">
+      <action name="Execute">
+        <command>gnote</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-f">
+      <action name="Execute">
+        <command>thunar</command>
       </action>
     </keybind>
     <keybind key="C-A-t">
@@ -350,9 +365,39 @@
         <command>/home/otubo/Downloads/wmtiler.sh -v</command>
       </action>
     </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute">
+				<command>amixer sset Master 1-</command>
+      </action>
+    </keybind>
+    <keybind key="XF86Calculator">
+      <action name="Execute">
+				<command>/home/otubo/develop/misc/util/changedisplay.sh</command>
+      </action>
+    </keybind>
+    <keybind key="XF86Display">
+      <action name="Execute">
+				<command>/home/otubo/develop/misc/util/changedisplay.sh</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+				<command>amixer sset Master 1+</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-w">
+      <action name="Execute">
+				<command>xterm -maximized -e /bin/bash -l -c "weechat"</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-m">
+      <action name="Execute">
+				<command>xterm -maximized -e /bin/bash -l -c "TERM=xterm-256color mutt -F /home/otubo/.muttrc_otubo"</command>
+      </action>
+    </keybind>
     <keybind key="C-A-x">
       <action name="Execute">
-        <command>xterm</command>
+        <command>xterm -bg black -fg white</command>
       </action>
     </keybind>
     <keybind key="W-e">
