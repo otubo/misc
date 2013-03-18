@@ -11,26 +11,26 @@
 # Note: $folder should be set _before_ any other path vars where `+' or `='
 # is used because paths are expanded when parsed
 #
-set folder=""
-set spoolfile=""
-set mbox=""
+set folder="imaps://imap.linux.ibm.com:993"
+set spoolfile="imaps://imap.linux.ibm.com:993/INBOX"
+set mbox="imaps://imap.linux.ibm.com:993/INBOX"
 set editor="/usr/bin/vim +2 -c 'normal 5l'"
 #set editor="vim -f -c 'set nohlsearch noshowmatch modelines=0 tw=75 et noai' --cmd 'let mutt_mode=1'"
 set envelope_from=yes
-set from=EMAIL
+set from=otubo@linux.vnet.ibm.com
 set header_cache=~/.mutt/cache/IBM
 set message_cachedir=~/.mutt/cache/IBM-message
 set imap_pass="SENHA"
-set imap_user="USUARIO"
+set imap_user="eotubo"
 set signature="~/.signature_ibm"
 set ssl_starttls=no
-set smtp_url="SERVER"
+set smtp_url="smtp://la.relay.ibm.com/"
 set imap_check_subscribed=yes
 set abort_unmodified=yes
 set record="=Sent"
 set postponed="=Drafts"
 unset imap_passive  
-
+alternates "eotubo@br.ibm.com|otubo@linux.vnet.ibm.com|eotubo@linux.vnet.ibm.com"
 #set folder = /home/otubo/Inbox
 #set spoolfile=/home/otubo/Inbox
 #set mbox=/home/otubo/Inbox
@@ -121,14 +121,22 @@ ignore *    # this means "ignore all lines by default"
 unignore  from: subject to cc mail-followup-to \
     date x-mailer x-url # this shows how nicely wrap long lines
 
-macro index <F3> "l~Cltc-interlock@lists.linux.ibm.com<enter><end>"
-macro index <F4> "l~Cibm-openstack-dev@lists.linux.ibm.com<enter><end>"
-macro index <F5> "l~Cmaroon@lists.linux.ibm.com<enter><end>"
-macro index <F6> "l~Cqemu-devel@nongnu.org<enter><end>"
-macro index <F7> "l~Clibvir-list@redhat.com | ~Clibvirt-list@redhat.com<enter><end>"
-macro index <F8> "l~Clibseccomp-discuss@lists.sourceforge.net<enter><end>"
-macro index <F9> "l!~Cmaroon@lists.linux.ibm.com !~Cqemu-devel@nongnu.org !~Clibvir-list@redhat.com !~Clibvirt-list@redhat.com !~Clibseccomp-discuss@lists.sourceforge.net !~Cibm-openstack-dev@lists.linux.ibm.com !~Cltc-interlock@lists.linux.ibm.com<enter><end>"
-macro index <F10> "l~Ceotubo@br.ibm.com | ~Cotubo@linux.vnet.ibm.com | ~Ceotubo@linux.vnet.ibm.com<enter><end>"
+#FILTERS
+macro index <F2> 		"l!~Cmaroon@lists.linux.ibm.com !~Cqemu-devel@nongnu.org !~Clibvir-list@redhat.com !~Clibvirt-list@redhat.com !~Clibseccomp-discuss@lists.sourceforge.net !~Cibm-openstack-dev@lists.linux.ibm.com !~Cltc-interlock@lists.linux.ibm.com !~Copencryptoki@noreply.github.com !~fbugzilla@us.ibm.com !~fbugzilla@redhat.com<enter><end><current-middle>"
+macro index <F3> 		"l~Ceotubo@br.ibm.com | ~Cotubo@linux.vnet.ibm.com | ~Ceotubo@linux.vnet.ibm.com<enter><end><current-middle>"
+macro index <F4> 		"l~Cltc-interlock@lists.linux.ibm.com<enter><end><current-middle>"
+macro index <F5> 		"l~Cibm-openstack-dev@lists.linux.ibm.com<enter><end><current-middle>"
+macro index <F6> 		"l~Cmaroon@lists.linux.ibm.com<enter><end><current-middle>"
+macro index <F7> 		"l~Cqemu-devel@nongnu.org<enter><end><current-middle>"
+macro index <F8> 		"l~Clibvir-list@redhat.com | ~Clibvirt-list@redhat.com<enter><end><current-middle>"
+macro index <F9> 		"l~Clibseccomp-discuss@lists.sourceforge.net<enter><end><current-middle>"
+macro index <F10> 	"l~Copencryptoki@noreply.github.com<enter><end><current-middle>"
+macro index <F11>		"l~fbugzilla@us.ibm.com | ~fbugzilla@redhat.com<enter><end><current-middle>"
+
+#macro index <down> "<next-undeleted><current-middle>" \
+#	"move cursor to next undeleted and centre it"
+#macro index <up> "<previous-undeleted><current-middle>" \
+#	"move cursor to previous undeleted and centre it"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
@@ -276,9 +284,9 @@ subscribe libvirt libseccomp Qemu-devel
 
 #auto_view application/x-gunzip
 #auto_view application/x-gzip
-alternative_order text/calendar text/enriched text/plain text/html
+alternative_order text/enriched text/plain text/calendar text/html
 auto_view text/calendar
-#
+auto_view text/html
 
 # aliases for broken MUAs
 charset-hook US-ASCII ISO-8859-1
