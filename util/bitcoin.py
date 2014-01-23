@@ -1,5 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
+# this script gets the CEX balance and calculates the value in BRL
+# using the latest value from mercadobitcoin and send a pushover
+# notification to your device.
+
 import cexapi
 import requests
 import json
