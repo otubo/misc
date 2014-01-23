@@ -5,11 +5,11 @@
 # using the latest value from mercadobitcoin and send a pushover
 # notification to your device.
 
-import cexapi
+import cexapi # you can find cexapi here: https://github.com/matveyco/cex.io-api-python
 import requests
 import json
 
-username = "otubo"
+username = "CEX username"
 api_key = "CEX api key"
 api_secret = "CEX api secret"
 pushover_token = "Pushover token"
