@@ -6,6 +6,10 @@ source /etc/bashrc
 export PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\w\[\e[31;1m\]$(__git_ps1 " %s")\[\033[01;34m\] \$ \[\e[0m\]'
 #export PS1='\[\033[40;32;3m\]\u@\h \[\033[40;34;3m\]\w\[\033[40;34;1m\] \$\[\e[0m\] '
 
+#open a new tmux session or attach an already opened one
+#if [[ ! $TERM =~ screen ]]; then
+#    exec tmux attach
+#fi
 
 #Some important alias
 alias ll='ls -lsh --color=auto'
