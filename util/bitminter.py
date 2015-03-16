@@ -6,7 +6,7 @@ from requests.auth import HTTPBasicAuth
 
 user = ""
 api_key = ""
-url = "https://bitminter.com/api/users/%s" % user
+url = "" % user
 pushover_token = ""
 pushover_user_token = ""
 
